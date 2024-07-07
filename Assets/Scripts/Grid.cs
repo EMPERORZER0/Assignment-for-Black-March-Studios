@@ -13,14 +13,14 @@ public class GridGenerator : MonoBehaviour
 
     void GenerateGrid()
     {
-        for (int x = 1; x < gridSize+1; x++)
+        for (int x = 0; x < gridSize; x++)
         {
-            for (int y = 1; y < gridSize+1; y++)
+            for (int y = 0; y < gridSize; y++)
             {
                 Vector3 position = new Vector3(x * spacing, 0, y * spacing);
                 //Vector3 position = new Vector3(x , 0, y); //For no space between cubes
                 GameObject cube = Instantiate(cubePrefab, position, Quaternion.identity);
-                cube.name = $"Cube_{x}_{y}";
+                cube.name = $"Cube_{x+1}_{y+1}";
                 cube.AddComponent<TileInfo>().SetPosition(x, y);
             }
         }

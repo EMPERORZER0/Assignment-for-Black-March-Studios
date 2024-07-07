@@ -13,7 +13,7 @@ public class TileInfoDisplay : MonoBehaviour
             if (tileInfo != null)
             {
                 Vector2Int position = tileInfo.GetPosition();
-                tileInfoText.text = $"Tile: ({position.x}, {position.y})";
+                tileInfoText.text = $"Tile: ({position.x+1}, {position.y + 1})";
             }
         }
     }
