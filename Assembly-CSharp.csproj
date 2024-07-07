@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Grid.cs" />
     <Compile Include="Assets\Scripts\TileInfoDisplay.cs" />
     <Compile Include="Assets\Scripts\ObstacleTool.cs" />
+    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Obstacle\ObstacleData.cs" />
   </ItemGroup>
   <ItemGroup>

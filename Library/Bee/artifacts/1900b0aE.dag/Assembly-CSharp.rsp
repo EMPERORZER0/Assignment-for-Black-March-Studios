@@ -361,6 +361,7 @@
 "Assets/Scripts/Grid.cs"
 "Assets/Scripts/ObstacleManager.cs"
 "Assets/Scripts/ObstacleTool.cs"
+"Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/TileInfo.cs"
 "Assets/Scripts/TileInfoDisplay.cs"
 -langversion:9.0
