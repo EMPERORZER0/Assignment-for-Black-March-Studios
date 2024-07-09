@@ -245,9 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a81f12501fb3f57489e55cf01e2e25cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 3663837170777392713, guid: 5c89d794a772d244f90ef62026436657, type: 3}
+  cubePrefab: {fileID: 7557321980525295971, guid: e4eb68c6685f8f44cab00a6cd83d7dcf, type: 3}
   gridSize: 10
-  spacing: 1.1
 --- !u!4 &571558827
 Transform:
   m_ObjectHideFlags: 0
@@ -883,7 +882,7 @@ Transform:
   m_GameObject: {fileID: 1627992536}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.9, y: 0, z: 9.9}
+  m_LocalPosition: {x: 9, y: 0, z: 9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

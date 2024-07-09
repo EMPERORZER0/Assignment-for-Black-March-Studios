@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
                 TileInfo tileInfo = hit.collider.GetComponent<TileInfo>();
                 if (tileInfo != null && !IsObstacle(tileInfo.GetPosition()))
                 {
-                    Vector2Int start = new Vector2Int((int)(transform.position.x / gridGenerator.spacing), (int)(transform.position.z / gridGenerator.spacing));
+                    Vector2Int start = new Vector2Int((int)(transform.position.x ), (int)(transform.position.z ));
                     Vector2Int end = tileInfo.GetPosition();
                     List<Vector2Int> path = FindPath(start, end); //Find the path using A* Algorithm
                     if (path != null)
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
                         pathQueue = new Queue<Vector3>();
                         foreach (Vector2Int point in path)
                         {
-                            pathQueue.Enqueue(new Vector3(point.x * gridGenerator.spacing, 0, point.y * gridGenerator.spacing));
+                            pathQueue.Enqueue(new Vector3(point.x, 0, point.y));
                         }
                         isMoving = true;
                     }
@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
     bool IsObstacle(Vector2Int position)
     {
         int index = position.y * gridGenerator.gridSize + position.x;
-        Vector2Int enemyPosition = new Vector2Int((int)(enemyAI.transform.position.x / gridGenerator.spacing), (int)(enemyAI.transform.position.z / gridGenerator.spacing));
+        Vector2Int enemyPosition = new Vector2Int((int)(enemyAI.transform.position.x ), (int)(enemyAI.transform.position.z ));
         return obstacleData.obstacles[index] || enemyPosition == position;
     }
 

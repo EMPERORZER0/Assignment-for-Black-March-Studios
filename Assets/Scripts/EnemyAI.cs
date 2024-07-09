@@ -33,8 +33,8 @@ public class EnemyAI : MonoBehaviour, IAI
     {
         if (isMoving) return;
 
-        Vector2Int enemyPosition = new Vector2Int((int)(transform.position.x / gridGenerator.spacing), (int)(transform.position.z / gridGenerator.spacing));
-        Vector2Int playerGridPosition = new Vector2Int((int)(playerPosition.x / gridGenerator.spacing), (int)(playerPosition.z / gridGenerator.spacing));
+        Vector2Int enemyPosition = new Vector2Int((int)(transform.position.x), (int)(transform.position.z));
+        Vector2Int playerGridPosition = new Vector2Int((int)(playerPosition.x ), (int)(playerPosition.z ));
 
         List<Vector2Int> possibleTargets = GetDirectNeighbors(playerGridPosition);
         foreach (Vector2Int target in possibleTargets)
@@ -47,7 +47,7 @@ public class EnemyAI : MonoBehaviour, IAI
                     pathQueue = new Queue<Vector3>();
                     foreach (Vector2Int point in path)
                     {
-                        pathQueue.Enqueue(new Vector3(point.x * gridGenerator.spacing, 0, point.y * gridGenerator.spacing));
+                        pathQueue.Enqueue(new Vector3(point.x, 0, point.y));
                     }
                     pathQueue.Dequeue(); // Remove the first tile (current position)
                     isMoving = true;
@@ -178,8 +178,8 @@ public class EnemyAI : MonoBehaviour, IAI
     bool IsObstacle(Vector2Int position)
     {
         int index = position.y * gridGenerator.gridSize + position.x;
-        Vector2Int enemyPosition = new Vector2Int((int)(transform.position.x / gridGenerator.spacing), (int)(transform.position.z / gridGenerator.spacing));
-        Vector2Int playerPosition = new Vector2Int((int)(playerController.transform.position.x / gridGenerator.spacing), (int)(playerController.transform.position.z / gridGenerator.spacing));
+        Vector2Int enemyPosition = new Vector2Int((int)(transform.position.x), (int)(transform.position.z));
+        Vector2Int playerPosition = new Vector2Int((int)(playerController.transform.position.x ), (int)(playerController.transform.position.z));
         return obstacleData.obstacles[index] || enemyPosition == position || playerPosition == position;
     }
 

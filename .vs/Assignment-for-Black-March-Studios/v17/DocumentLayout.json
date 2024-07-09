@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "D:\\Platformer\\Assignment-for-Black-March-Studios\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|D:\\Platformer\\Assignment-for-Black-March-Studios\\assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|d:\\platformer\\assignment-for-black-march-studios\\assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\enemyai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|d:\\platformer\\assignment-for-black-march-studios\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|D:\\Platformer\\Assignment-for-Black-March-Studios\\assets\\scripts\\iai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\iai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|D:\\Platformer\\Assignment-for-Black-March-Studios\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|D:\\Platformer\\Assignment-for-Black-March-Studios\\assets\\scripts\\obstaclemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\obstaclemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|D:\\Platformer\\Assignment-for-Black-March-Studios\\assets\\scripts\\iai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{757B3480-86A9-F5E5-1AF5-2A552615541E}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\iai.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,14 +44,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\EnemyAI.cs",
               "ToolTip": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\EnemyAI.cs",
               "RelativeToolTip": "Assets\\Scripts\\EnemyAI.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAMQAAAAAAAAA",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwLUAAACNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-08T07:48:15.041Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 1,
               "Title": "IAI.cs",
               "DocumentMoniker": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\IAI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\IAI.cs",
@@ -59,24 +59,25 @@
               "RelativeToolTip": "Assets\\Scripts\\IAI.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T07:47:27.194Z"
+              "WhenOpened": "2024-07-08T07:47:27.194Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AQIAAKMAAAAAAAAAAADwv8IAAAApAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADcAAABNAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T15:37:47.41Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "TileInfoDisplay.cs",
               "DocumentMoniker": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\TileInfoDisplay.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TileInfoDisplay.cs",
@@ -89,26 +90,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Grid.cs",
               "DocumentMoniker": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\Grid.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Grid.cs",
               "ToolTip": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\Grid.cs",
               "RelativeToolTip": "Assets\\Scripts\\Grid.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAArAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T09:35:13.747Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ObstacleManager.cs",
               "DocumentMoniker": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\ObstacleManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ObstacleManager.cs",
               "ToolTip": "D:\\Platformer\\Assignment-for-Black-March-Studios\\Assets\\Scripts\\ObstacleManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\ObstacleManager.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAcAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAABkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-07-07T09:34:49.409Z",
               "EditorCaption": ""
