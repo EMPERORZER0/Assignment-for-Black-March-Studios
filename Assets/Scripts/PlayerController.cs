@@ -5,19 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public LayerMask obstacleLayer;
     public ObstacleData obstacleData;
     public GridGenerator gridGenerator;
+    private EnemyAI enemyAI;
 
     private Vector3 targetPosition;
     private bool isMoving;
     private Queue<Vector3> pathQueue;
     private Rigidbody rb;
+    private bool isPlayerTurn = true;
 
     void Start()
     {
         targetPosition = transform.position;
-        rb = GetComponent<Rigidbody>(); // Get the Rigidbody component if it exists
+        rb = GetComponent<Rigidbody>();
+        enemyAI = FindObjectOfType<EnemyAI>();
+        enemyAI.OnMovementFinished += EnablePlayerTurn;
     }
 
     void Update()
@@ -26,7 +29,7 @@ public class PlayerController : MonoBehaviour
         {
             MoveAlongPath();
         }
-        else
+        else if (isPlayerTurn)
         {
             GetMouseInput();
         }
@@ -36,16 +39,15 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Cast a ray from the mouse position
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 TileInfo tileInfo = hit.collider.GetComponent<TileInfo>();
                 if (tileInfo != null && !IsObstacle(tileInfo.GetPosition()))
                 {
-                    Debug.Log($"Clicked on tile: {tileInfo.GetPosition()}");
                     Vector2Int start = new Vector2Int((int)(transform.position.x / gridGenerator.spacing), (int)(transform.position.z / gridGenerator.spacing));
                     Vector2Int end = tileInfo.GetPosition();
-                    List<Vector2Int> path = FindPath(start, end);
+                    List<Vector2Int> path = FindPath(start, end); //Find the path using A* Algorithm
                     if (path != null)
                     {
                         pathQueue = new Queue<Vector3>();
@@ -53,12 +55,7 @@ public class PlayerController : MonoBehaviour
                         {
                             pathQueue.Enqueue(new Vector3(point.x * gridGenerator.spacing, 0, point.y * gridGenerator.spacing));
                         }
-                        Debug.Log("Path found and movement started");
                         isMoving = true;
-                    }
-                    else
-                    {
-                        Debug.Log("No valid path found");
                     }
                 }
             }
@@ -70,7 +67,6 @@ public class PlayerController : MonoBehaviour
         if (pathQueue.Count > 0)
         {
             Vector3 nextPosition = pathQueue.Peek();
-            Debug.Log($"Moving towards {nextPosition}");
 
             if (rb != null)
             {
@@ -83,28 +79,22 @@ public class PlayerController : MonoBehaviour
 
             if (Vector3.Distance(transform.position, nextPosition) < 0.01f)
             {
-                Debug.Log($"Reached {nextPosition}");
                 transform.position = nextPosition;
                 pathQueue.Dequeue();
             }
         }
         else
         {
-            Debug.Log("Finished moving");
             isMoving = false;
+            isPlayerTurn = false;
+            enemyAI.MoveTowards(transform.position); // Trigger enemy movement
         }
     }
 
-    bool IsObstacle(Vector2Int position)
-    {
-        int index = position.y * gridGenerator.gridSize + position.x;
-        bool isObstacle = obstacleData.obstacles[index];
-        Debug.Log($"Tile {position} is obstacle: {isObstacle}");
-        return isObstacle;
-    }
-
+    // A* pathfinding algorithm
     List<Vector2Int> FindPath(Vector2Int start, Vector2Int end)
     {
+      
         List<Vector2Int> openList = new List<Vector2Int>();
         HashSet<Vector2Int> closedList = new HashSet<Vector2Int>();
         Dictionary<Vector2Int, Vector2Int> cameFrom = new Dictionary<Vector2Int, Vector2Int>();
@@ -114,8 +104,6 @@ public class PlayerController : MonoBehaviour
         openList.Add(start);
         gScore[start] = 0;
         fScore[start] = Heuristic(start, end);
-
-        Debug.Log($"Starting pathfinding from {start} to {end}");
 
         while (openList.Count > 0)
         {
@@ -130,7 +118,6 @@ public class PlayerController : MonoBehaviour
 
             if (current == end)
             {
-                Debug.Log("Path found");
                 return ReconstructPath(cameFrom, current);
             }
 
@@ -144,7 +131,7 @@ public class PlayerController : MonoBehaviour
                     continue;
                 }
 
-                float tentativeGScore = gScore[current] + 1; // Distance between current and neighbor is 1
+                float tentativeGScore = gScore[current] + 1;
 
                 if (!openList.Contains(neighbor))
                 {
@@ -161,7 +148,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        Debug.Log("No path found");
         return null; // No path found
     }
 
@@ -194,6 +180,7 @@ public class PlayerController : MonoBehaviour
         return neighbors;
     }
 
+    // Reconstruct the path from the cameFrom dictionary
     List<Vector2Int> ReconstructPath(Dictionary<Vector2Int, Vector2Int> cameFrom, Vector2Int current)
     {
         List<Vector2Int> totalPath = new List<Vector2Int> { current };
@@ -203,5 +190,26 @@ public class PlayerController : MonoBehaviour
             totalPath.Insert(0, current);
         }
         return totalPath;
+    }
+
+    // Check if a position is an obstacle
+    bool IsObstacle(Vector2Int position)
+    {
+        int index = position.y * gridGenerator.gridSize + position.x;
+        Vector2Int enemyPosition = new Vector2Int((int)(enemyAI.transform.position.x / gridGenerator.spacing), (int)(enemyAI.transform.position.z / gridGenerator.spacing));
+        return obstacleData.obstacles[index] || enemyPosition == position;
+    }
+
+    void EnablePlayerTurn()
+    {
+        isPlayerTurn = true;
+    }
+
+    private void OnDestroy()
+    {
+        if (enemyAI != null)
+        {
+            enemyAI.OnMovementFinished -= EnablePlayerTurn;
+        }
     }
 }
